@@ -1,5 +1,37 @@
-﻿<h3>SearchCityComponent</h3>
+﻿@using Syncfusion.Blazor
+@using Syncfusion.Blazor.DropDowns
+@using WeatherApp.Models;
+@using WeatherApp.UseCases.Interfaces;
+
+@inject IViewCitiesByNameUseCase ViewCitiesByNameUseCase
+
+<p>DropDownList Value is: @selectedCity.CityName</p>
+
+<SfDropDownList TValue="CityForecast" TItem="CityForecast" Placeholder="Type City Name" @bind-Value="@selectedCity" DataSource="@cityForecasts">
+    <DropDownListFieldSettings Value="CityName"></DropDownListFieldSettings>
+    <DropDownListEvents TValue="CityForecast" TItem="CityForecast" ValueChange="OnValueChange"></DropDownListEvents>
+</SfDropDownList>
+
 
 @code {
+    private List<CityForecast>? cityForecasts;
+    private CityForecast selectedCity;
 
+    [Parameter]
+    public EventCallback<CityForecast> SelectedCityChanged { get; set; }
+
+    // Dropdown List DataSource is populated and default selected city is assigned
+    protected override async Task OnInitializedAsync()
+    {
+        cityForecasts = (await ViewCitiesByNameUseCase.ExecuteAsync("")).ToList();
+        this.selectedCity = cityForecasts[0]; 
+    }
+
+    // Invoked when user selects a new city and wishes to see its forecast
+    private void OnValueChange(ChangeEventArgs<CityForecast, CityForecast> args)
+    {
+        SelectedCityChanged.InvokeAsync(args.Value);
+    }
+
+    
 }

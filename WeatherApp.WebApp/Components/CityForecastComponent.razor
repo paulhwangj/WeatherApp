@@ -1,9 +1,27 @@
-﻿<h1>City Name: @cityName </h1>
-<h2>Date: @date</h2>
-<h3>Temperature (F): @temperature</h3>
+﻿@using WeatherApp.Models;
+@using WeatherApp.UseCases.Interfaces;
+
+@inject IViewCityForecastUseCase ViewCityForecastUseCase
+
+@if (city != null)
+{
+    <h1>Temp: @city.TemperatureF °F</h1>
+    <h1>City: @city.CityName </h1>
+    <h1>Wind (Mph): @city.WindInMph </h1>
+    <h1>Feels like (F): @city.FeelsLikeInFahrenheit </h1>
+    <h1>Humidity: @city.Humidity </h1>
+}
 
 @code {
-    private string cityName = "New York";
-    private DateTime date = DateTime.Now;
-    private int temperature = 72;
+    private CityForecast city;
+
+    [Parameter]
+    public int SearchCity { get; set; } = 1;
+
+    // Triggered when a new city has been selected
+    protected override async Task OnParametersSetAsync()
+    {
+        city = await ViewCityForecastUseCase.ExecuteAsync(this.SearchCity);
+    }
+
 }

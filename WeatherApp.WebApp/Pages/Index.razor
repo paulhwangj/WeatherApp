@@ -1,13 +1,20 @@
 ﻿@page "/"
 
+@using WeatherApp.Models;
 @using WeatherApp.WebApp.Components
 
 <PageTitle>Weather App</PageTitle>
 
-<!-- Search Bar Component -->
-<CityForecastComponent></CityForecastComponent>
-
+<SearchCityComponent SelectedCityChanged="GetSelectedCity"></SearchCityComponent>
+<CityForecastComponent SearchCity="@cityId"></CityForecastComponent>
 
 @code {
+    private int cityId = 1;
 
+    // User selected city in SearchCityComponent, we will update now update
+    // the CityForecastComponent to show that city's forecast
+    private void GetSelectedCity(CityForecast city)
+    {
+        cityId = city.CityId;
+    }
 }

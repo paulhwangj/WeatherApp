@@ -5,5 +5,6 @@ namespace WeatherApp.UseCases.PluginInterfaces
     public interface ICityForecastRepository
     {
         Task<CityForecast> GetForecastAsync(int cityId);
+        Task<IEnumerable<CityForecast>> GetCityForecastsByNameAsync(string name);
     }
 }
