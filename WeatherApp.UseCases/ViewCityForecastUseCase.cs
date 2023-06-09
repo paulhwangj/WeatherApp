@@ -14,7 +14,7 @@ namespace WeatherApp.UseCases
             this.cityForecastRepository = cityForecastRepository;
         }
 
-        public async Task<CityForecast> ExecuteAsync(int cityId)
+        public async Task<Forecast> ExecuteAsync(int cityId)
         {
             return await cityForecastRepository.GetForecastAsync(cityId);
         }

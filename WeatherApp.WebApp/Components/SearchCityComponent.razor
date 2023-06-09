@@ -3,35 +3,26 @@
 @using WeatherApp.Models;
 @using WeatherApp.UseCases.Interfaces;
 
-@inject IViewCitiesByNameUseCase ViewCitiesByNameUseCase
+<div class="input-group">
+    <input type="number"
+        class="form-control"
+        placeholder="Type in Zipcode"
+        @bind-value="zipCode" />
 
-<p>DropDownList Value is: @selectedCity.CityName</p>
-
-<SfDropDownList TValue="CityForecast" TItem="CityForecast" Placeholder="Type City Name" @bind-Value="@selectedCity" DataSource="@cityForecasts">
-    <DropDownListFieldSettings Value="CityState"></DropDownListFieldSettings>
-    <DropDownListEvents TValue="CityForecast" TItem="CityForecast" ValueChange="OnValueChange"></DropDownListEvents>
-</SfDropDownList>
-
+    <button type="button"
+        class="btn-success input-group-text"
+        @onclick="OnSearchZip">Search</button>
+</div>
 
 @code {
-    private List<CityForecast>? cityForecasts;
-    private CityForecast selectedCity;
+    private Forecast forecast = new Forecast();
+    private int zipCode = 54904;
 
     [Parameter]
-    public EventCallback<CityForecast> SelectedCityChanged { get; set; }
+    public EventCallback<int> SearchForZipCodeChanged { get; set; }
 
-    // Dropdown List DataSource is populated and default selected city is assigned
-    protected override async Task OnInitializedAsync()
+    private void OnSearchZip()
     {
-        cityForecasts = (await ViewCitiesByNameUseCase.ExecuteAsync("")).ToList();
-        this.selectedCity = cityForecasts[0]; 
+        SearchForZipCodeChanged.InvokeAsync(zipCode);
     }
-
-    // Invoked when user selects a new city and wishes to see its forecast
-    private void OnValueChange(ChangeEventArgs<CityForecast, CityForecast> args)
-    {
-        SelectedCityChanged.InvokeAsync(args.Value);
-    }
-
-    
 }

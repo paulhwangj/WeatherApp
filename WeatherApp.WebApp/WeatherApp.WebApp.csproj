@@ -9,7 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\WeatherApp.Models\WeatherApp.Models.csproj" />
     <ProjectReference Include="..\WeatherApp.Plugins.API\WeatherApp.Plugins.API.csproj" />
-    <ProjectReference Include="..\WeatherApp.Plugins\WeatherApp.Plugins.InMemory\WeatherApp.Plugins.InMemory.csproj" />
     <ProjectReference Include="..\WeatherApp.UseCases\WeatherApp.UseCases.csproj" />
   </ItemGroup>
 

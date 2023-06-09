@@ -6,9 +6,9 @@ namespace WeatherApp.Plugins.InMemory
 {
     public class CityForecastRepository : ICityForecastRepository
     {
-        public List<CityForecast> _cityForecasts = new List<CityForecast>
+        public List<Forecast> _forecasts = new List<Forecast>
         {
-            new CityForecast()
+            new Forecast()
             {
                 CityId = 1,
                 CityName = "New York",

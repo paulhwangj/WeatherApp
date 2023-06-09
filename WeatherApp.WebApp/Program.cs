@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using WeatherApp.Plugins.InMemory;
 using WeatherApp.UseCases;
 using WeatherApp.UseCases.Interfaces;
 using WeatherApp.UseCases.PluginInterfaces;
@@ -18,7 +17,6 @@ builder.Services.AddSyncfusionBlazor();
 
 builder.Services.AddSingleton<ICityForecastRepository, CityForecastRepositoryAPI>();
 builder.Services.AddSingleton<IViewCityForecastUseCase, ViewCityForecastUseCase>();
-builder.Services.AddSingleton<IViewCitiesByNameUseCase, ViewCitiesByNameUseCase>();
 
 var app = builder.Build();
 
