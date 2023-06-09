@@ -1,27 +1,33 @@
 ﻿@using WeatherApp.Models;
 @using WeatherApp.UseCases.Interfaces;
+@using WeatherApp.UseCases;
 
+@inject ZipCodeService ZipCodeService
 @inject IViewCityForecastUseCase ViewCityForecastUseCase
 
-@if (city != null)
+@if (forecast != null)
 {
-    <h1>Temp: @city.TemperatureF °F</h1>
-    <h1>Place: @city.CityState </h1>
-    <h1>Wind (Mph): @city.WindInMph </h1>
-    <h1>Feels like (F): @city.FeelsLikeInFahrenheit </h1>
-    <h1>Humidity: @city.Humidity </h1>
+    <h1>Entered Zip: @SearchZip</h1>
+    <h1>Temp: @forecast.TemperatureF °F</h1>
+    <h1>@String.Format($"{forecast.CityName}, {forecast.State}")</h1>
+    <h1>Wind (Mph): @forecast.WindInMph </h1>
+    <h1>Feels like (F): @forecast.FeelsLikeInFahrenheit </h1>
+    <h1>Humidity: @forecast.Humidity </h1>
 }
 
 @code {
-    private CityForecast city;
+    private Forecast forecast;
 
     [Parameter]
-    public int SearchCity { get; set; } = 1;
+    public int SearchZip { get; set; } = 1;
 
-    // Triggered when a new city has been selected
+    // Triggered when a new forecast has been selected
     protected override async Task OnParametersSetAsync()
     {
-        city = await ViewCityForecastUseCase.ExecuteAsync(this.SearchCity);
+        (string, string) cityState = await ZipCodeService.GetCityAndState(this.SearchZip.ToString());
+        forecast = await ViewCityForecastUseCase.ExecuteAsync(this.SearchZip);
+        forecast.CityName = cityState.Item1;
+        forecast.State = cityState.Item2;
     }
 
 }

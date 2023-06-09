@@ -5,16 +5,16 @@
 
 <PageTitle>Weather App</PageTitle>
 
-<SearchCityComponent SelectedCityChanged="GetSelectedCity"></SearchCityComponent>
-<CityForecastComponent SearchCity="@cityId"></CityForecastComponent>
+<SearchCityComponent SearchForZipCodeChanged="GetWeatherForZip"></SearchCityComponent>
+<CityForecastComponent SearchZip="@zipCode"></CityForecastComponent>
 
 @code {
-    private int cityId = 1;
+    private int zipCode = 54904;
 
     // User selected city in SearchCityComponent, we will update now update
     // the CityForecastComponent to show that city's forecast
-    private void GetSelectedCity(CityForecast city)
+    private void GetWeatherForZip(int newZipCode)
     {
-        cityId = city.CityId;
+        zipCode = newZipCode;
     }
 }
