@@ -4,6 +4,8 @@ namespace WeatherApp.Models
     {
         public int CityId { get; set; }
         public string CityName { get; set; }
+        public string State { get; set; }
+        public string CityState => String.Format($"{CityName}, {State}");
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }

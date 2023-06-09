@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WeatherApp.Plugins", "Weath
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Plugins.InMemory", "WeatherApp.Plugins\WeatherApp.Plugins.InMemory\WeatherApp.Plugins.InMemory.csproj", "{D549E720-F5CE-4FBA-B459-4DDD1D1D226D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Plugins.API", "WeatherApp.Plugins.API\WeatherApp.Plugins.API.csproj", "{83BACCF4-DA88-4232-B3F4-E9BD1B34171B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,12 +37,17 @@ Global
 		{D549E720-F5CE-4FBA-B459-4DDD1D1D226D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D549E720-F5CE-4FBA-B459-4DDD1D1D226D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D549E720-F5CE-4FBA-B459-4DDD1D1D226D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BACCF4-DA88-4232-B3F4-E9BD1B34171B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BACCF4-DA88-4232-B3F4-E9BD1B34171B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BACCF4-DA88-4232-B3F4-E9BD1B34171B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BACCF4-DA88-4232-B3F4-E9BD1B34171B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D549E720-F5CE-4FBA-B459-4DDD1D1D226D} = {AFEFFEB4-A2A8-4F35-BB76-7D24558AC71D}
+		{83BACCF4-DA88-4232-B3F4-E9BD1B34171B} = {AFEFFEB4-A2A8-4F35-BB76-7D24558AC71D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C7C3637-C228-49C8-BC27-D52A57FAFADB}

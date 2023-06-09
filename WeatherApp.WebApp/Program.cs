@@ -6,15 +6,17 @@ using WeatherApp.UseCases.Interfaces;
 using WeatherApp.UseCases.PluginInterfaces;
 using WeatherApp.Plugins;
 using Syncfusion.Blazor;
+using WeatherApp.Plugins.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSyncfusionBlazor();
 
-builder.Services.AddSingleton<ICityForecastRepository, CityForecastRepository>();
+builder.Services.AddSingleton<ICityForecastRepository, CityForecastRepositoryAPI>();
 builder.Services.AddSingleton<IViewCityForecastUseCase, ViewCityForecastUseCase>();
 builder.Services.AddSingleton<IViewCitiesByNameUseCase, ViewCitiesByNameUseCase>();
 

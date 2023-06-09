@@ -7,8 +7,8 @@
 
 <p>DropDownList Value is: @selectedCity.CityName</p>
 
-<SfDropDownList TValue="CityForecast" TItem="CityForecast" AllowFiltering="true" Placeholder="Type City Name" @bind-Value="@selectedCity" DataSource="@cityForecasts">
-    <DropDownListFieldSettings Value="CityName"></DropDownListFieldSettings>
+<SfDropDownList TValue="CityForecast" TItem="CityForecast" Placeholder="Type City Name" @bind-Value="@selectedCity" DataSource="@cityForecasts">
+    <DropDownListFieldSettings Value="CityState"></DropDownListFieldSettings>
     <DropDownListEvents TValue="CityForecast" TItem="CityForecast" ValueChange="OnValueChange"></DropDownListEvents>
 </SfDropDownList>
 

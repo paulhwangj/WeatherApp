@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeatherApp.Models\WeatherApp.Models.csproj" />
+    <ProjectReference Include="..\WeatherApp.Plugins.API\WeatherApp.Plugins.API.csproj" />
     <ProjectReference Include="..\WeatherApp.Plugins\WeatherApp.Plugins.InMemory\WeatherApp.Plugins.InMemory.csproj" />
     <ProjectReference Include="..\WeatherApp.UseCases\WeatherApp.UseCases.csproj" />
   </ItemGroup>
@@ -19,6 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="21.2.9" />
     <PackageReference Include="Syncfusion.Blazor.Themes" Version="21.2.9" />
+    <PackageReference Include="WeatherAPI-CSharp" Version="0.5.1" />
   </ItemGroup>
 
 </Project>
