@@ -1,12 +1,15 @@
 ﻿@using WeatherApp.Models;
 @using WeatherApp.UseCases.Interfaces;
+@using WeatherApp.UseCases;
 
+@inject ZipCodeService ZipCodeService
 @inject IViewCityForecastUseCase ViewCityForecastUseCase
 
 @if (forecast != null)
 {
+    <h1>Entered Zip: @SearchZip</h1>
     <h1>Temp: @forecast.TemperatureF °F</h1>
-    <h1>Place: @forecast.ZipCode </h1>
+    <h1>@String.Format($"{forecast.CityName}, {forecast.State}")</h1>
     <h1>Wind (Mph): @forecast.WindInMph </h1>
     <h1>Feels like (F): @forecast.FeelsLikeInFahrenheit </h1>
     <h1>Humidity: @forecast.Humidity </h1>
@@ -21,7 +24,10 @@
     // Triggered when a new forecast has been selected
     protected override async Task OnParametersSetAsync()
     {
+        (string, string) cityState = await ZipCodeService.GetCityAndState(this.SearchZip.ToString());
         forecast = await ViewCityForecastUseCase.ExecuteAsync(this.SearchZip);
+        forecast.CityName = cityState.Item1;
+        forecast.State = cityState.Item2;
     }
 
 }

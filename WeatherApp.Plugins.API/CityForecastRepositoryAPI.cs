@@ -16,7 +16,6 @@ namespace WeatherApp.Plugins.API
         {
             // Call API and get information
             var weather = await client.GetWeatherCurrentAsync($"{zipCode}");
-            Console.WriteLine($"Weather in Oshkosh is {weather.TemperatureFahrenheit}");
 
             Forecast forecast = new Forecast()
             {

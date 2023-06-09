@@ -17,6 +17,7 @@ builder.Services.AddSyncfusionBlazor();
 
 builder.Services.AddSingleton<ICityForecastRepository, CityForecastRepositoryAPI>();
 builder.Services.AddSingleton<IViewCityForecastUseCase, ViewCityForecastUseCase>();
+builder.Services.AddTransient<ZipCodeService>();
 
 var app = builder.Build();
 
