@@ -10,7 +10,7 @@ namespace WeatherApp.Plugins.API
 {
     public class CityForecastRepositoryAPI : ICityForecastRepository
     {
-        private APIClient client = new APIClient("5507533fa8fd404696d164315230906");
+        private APIClient client = new APIClient(System.Environment.GetEnvironmentVariable("API_KEY"));
 
         public async Task<Forecast> GetForecastAsync(int zipCode)
         {
