@@ -28,7 +28,10 @@ namespace WeatherApp.Plugins.API
                 ZipCode = zipCode,
                 TemperatureF = weather.TemperatureFahrenheit,
                 WindInMph = weather.WindMph,
+                FeelsLikeInFahrenheit = weather.FeelsLikeFahrenheit,
                 Humidity = weather.Humidity,
+                ConditionIconUrl = weather.ConditionIconUrl,
+                ConditionText = weather.ConditionText,
             };
 
             return forecast;
