@@ -7,12 +7,28 @@
 
 @if (forecast != null)
 {
-    <h1>Entered Zip: @SearchZip</h1>
-    <h1>Temp: @forecast.TemperatureF °F</h1>
-    <h1>@String.Format($"{forecast.CityName}, {forecast.State}")</h1>
-    <h1>Wind (Mph): @forecast.WindInMph </h1>
-    <h1>Feels like (F): @forecast.FeelsLikeInFahrenheit </h1>
-    <h1>Humidity: @forecast.Humidity </h1>
+    <div style="background-color: pink; width: 40%; padding: 20px 0px 20px 0px; margin: auto; border-radius: 40px;">
+        <div class="center-image" style="display: flex; justify-content: center; align-items: center;">
+            <img src="@forecast.ConditionIconUrl" alt="condition-emoji" style="width: 200px">
+        </div>
+
+        <p style="text-align: center; font-size: 30px; font-style: oblique;">@forecast.ConditionText</p>
+
+        <hr style="width: 30%; margin: auto; height:5px;" />
+
+        <div class="align-content-center" style="text-align: center; margin: 35px 0px 35px 0px;">
+            <h1>@forecast.TemperatureF°F</h1>
+            <h1>@String.Format($"{forecast.CityName}, {forecast.State}")</h1>
+        </div>
+
+        <hr style="width: 30%; margin: auto; height:5px;" />
+
+        <div style="margin-top: 35px; text-align: center">
+            <h1>Wind: @String.Format($"{forecast.WindInMph} mph") </h1>
+            <h1>Feels like: @forecast.FeelsLikeInFahrenheit°F</h1>
+            <h1>Humidity: @forecast.Humidity%</h1>
+        </div>
+    </div>
 }
 
 @code {

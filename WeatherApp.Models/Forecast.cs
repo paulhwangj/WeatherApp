@@ -16,5 +16,7 @@ namespace WeatherApp.Models
         public double FeelsLikeInFahrenheit { get; set; }
         public double WindInMph { get; set; }
         public int Humidity { get; set; }
+        public string ConditionIconUrl { get; set; }
+        public string ConditionText { get; set; }
     }
 }

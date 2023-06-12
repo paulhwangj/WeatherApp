@@ -3,15 +3,21 @@
 @using WeatherApp.Models;
 @using WeatherApp.UseCases.Interfaces;
 
-<div class="input-group">
-    <input type="number"
-        class="form-control"
-        placeholder="Type in Zipcode"
-        @bind-value="zipCode" />
+<div id="search-zip-div" style="display: flex; justify-content: center; align-items: center;">
+    <div class="form-floating mb-3" style="display: flex;">
+        <input type="number"
+               id="zipcode-input"
+               class="form-control"
+               placeholder="54904"
+               style="margin-right: 5px;"
+               @bind-value="zipCode" />
+        <label for="zipcode-input">Zipcode</label>
 
-    <button type="button"
-        class="btn-success input-group-text"
-        @onclick="OnSearchZip">Search</button>
+        <button type="button"
+                id="submit-button"
+                class="btn-success input-group-text"
+                @onclick="OnSearchZip">Search</button>
+    </div>
 </div>
 
 @code {
