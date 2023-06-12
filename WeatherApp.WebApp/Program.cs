@@ -9,6 +9,9 @@ using WeatherApp.Plugins.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add configuration to access enviornment variables
+builder.Configuration.AddEnvironmentVariables();
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
